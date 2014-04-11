@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Chelp::Application.config.secret_key_base = '730f2a51c1727d2b615495aaa08bf4b0cc3dcb248e1f478e7a19ef22c4337439c13a74c06e9e9eb00d195cba00a271920d33194d8c558211625beebeb124a485'
+Chelp::Application.config.secret_key_base = '777d8a5772c17f606e860af50a6e29f112e54334e3bdcfb9db3c064f6644c3ff6e6df97082b36d2a6869c5e1913bc5a8888ce0b5eeb25d4c6db132f4561db17b'
