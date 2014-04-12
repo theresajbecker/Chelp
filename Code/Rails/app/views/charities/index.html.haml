@@ -1,0 +1,14 @@
+%h1 All Charities
+%table#charities
+  %thead
+    %tr
+      %th= "Name"
+      %th= "Description"
+  %tbody
+    - @charities.each do |charity|
+      %tr
+        %td= link_to charity.name, charity_path(charity)
+        %td= charity.description
+        
+
+= link_to 'Add new Charity', new_charity_path

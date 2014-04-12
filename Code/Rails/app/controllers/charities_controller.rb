@@ -22,12 +22,8 @@ class CharitiesController < ApplicationController
   # POST /charities
   def create
     @charity = Charity.new(charity_params)
-
-    if @charity.save
-      redirect_to @charity, notice: 'Charity was successfully created.'
-    else
-      render action: 'new'
-    end
+    flash[:notice] = "#{@charity.name} was successfully created."
+    redirect_to charities_path
   end
 
   # PATCH/PUT /charities/1
@@ -53,6 +49,7 @@ class CharitiesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def charity_params
-      params[:charity]
+      params.require(:charity).permit(:name, :description, :filter_flags)
+      #params[:charity]
     end
 end

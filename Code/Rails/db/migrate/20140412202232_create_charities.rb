@@ -4,6 +4,7 @@ class CreateCharities < ActiveRecord::Migration
 	  t.string :name
 	  t.string :description
 	  t.string :filter_flags
+	  
       t.timestamps
     end
   end

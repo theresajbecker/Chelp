@@ -1,0 +1,11 @@
+%h1 Create New Charity
+
+= form_tag charities_path do
+
+  = label :charity, :name, 'Name'
+  = text_field :charity, 'name'
+
+  = label :charity, :description, 'Description'
+  = text_field :charity, 'description'
+
+  = submit_tag 'Save Changes'
