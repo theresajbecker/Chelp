@@ -21,7 +21,7 @@ class CharitiesController < ApplicationController
 
   # POST /charities
   def create
-    @charity = Charity.new(charity_params)
+    @charity = Charity.create!(charity_params)
     flash[:notice] = "#{@charity.name} was successfully created."
     redirect_to charities_path
   end

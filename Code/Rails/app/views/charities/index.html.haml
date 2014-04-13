@@ -5,10 +5,10 @@
       %th= "Name"
       %th= "Description"
   %tbody
+    %tr
     - @charities.each do |charity|
       %tr
-        %td= link_to charity.name, charity_path(charity)
-        %td= charity.description
-        
+        %td= link_to "#{charity.name}", charity_path(charity)
+        %td= "#{charity.description}"
 
 = link_to 'Add new Charity', new_charity_path
