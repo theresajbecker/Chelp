@@ -2,10 +2,10 @@ Feature: The Chelp Homepage
  This is the Chelp homepage where the user should first be taken.
  
  
-Given I am on the Chelp home page
+Given I am on the Charities page
 
 Scenario: Navigate to Login page
-When I click on the login button
+When I follow "Login"
 Then I should be on the Login page
 
 Scenario: Navigate to Contact Us page
