@@ -1,0 +1,46 @@
+Feature: This is the contact page. 
+The contact page will be seen on the homepage. When you click on this button, you will be directed to information you can submit. 
+
+Scenario: Fill in First Name. 
+When I am on the “Contact Us” page
+I should see a Mandatory Submission field for my “First Name”
+And this field should populate a database
+
+Scenario: Fill in Last Name. 
+When I am on the “Contact Us” page
+I should see a Mandatory Submission field for my “Last Name”
+And this field should populate a database
+
+Scenario: Fill in Username. 
+When I am on the “Contact Us” page
+I should see a Mandatory Submission field for my “User Name”
+And this field should populate a database
+
+Scenario: Fill in Email. 
+When I am on the “Contact Us” page
+I should see a Mandatory Submission field for my “Email”
+And this field should populate a database
+
+Scenario: Fill in a message. 
+When I am on the “Contact Us” page
+I should see a Mandatory Submission field for my “Message”
+And this field should populate a database
+
+Scenario: Submit the your information. 
+When I am on the “Contact Us” page
+And I click on the “Submit” button
+I should verify that all mandatory fields contain text
+Then the fields will populate the database 
+And the Fields will clear after successful population 
+
+Scenario: Confirmation message when submitted. 
+When I am on the “Contact Us” Page 
+And I click on the “Submit” Button
+I should be shown the “Thank you for contacting us” message for 5 seconds
+And then be routed back to our previous page
+
+Scenario: Redirecting to the homepage. 
+When I am on a “Contact Us” page
+And I click on “Home”
+I should be taken to the “Chelp Homepage”
+

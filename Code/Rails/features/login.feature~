@@ -1,0 +1,23 @@
+Feature: This is Login page.
+This page will be seen on the homepage and can be accessed by users that have an account. 
+
+Scenario: Username and Password
+When I am on the “Login” page 
+I should see a field for “User Name”
+And “Password”
+
+Scenario: Google Sign In
+When I am on the “Login” page 
+I should see a field “Sign in using Google”
+
+Scenario: Successful Login
+When I am on the “Login” page
+And the “User Name” and “Password” fields contain data or I have signed in using OmniAuth
+And I click on “Submit”
+I should be logged in
+
+Scenario: Home Page Redirect
+When I am on the “Login” page
+And I click on “Home”
+I should be taken to the “Chelp Homepage” 
+
