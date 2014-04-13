@@ -1,4 +1,5 @@
 Chelp::Application.routes.draw do
+  get "contact_us/index"
   resources :users
 
   get "login/index"
@@ -13,6 +14,7 @@ Chelp::Application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get 'login' => 'login#index'
+  get 'contact_us' => 'contact_us#index'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
