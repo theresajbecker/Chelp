@@ -1,26 +1,26 @@
 #---------below copied from old app
 
-require 'uri'
-require 'cgi'
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
+#require 'uri'
+#require 'cgi'
+#require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
+#require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
-module WithinHelpers
-  def with_scope(locator)
-    locator ? within(*selector_for(locator)) { yield } : yield
-  end
-end
-World(WithinHelpers)
+#module WithinHelpers
+#  def with_scope(locator)
+#    locator ? within(*selector_for(locator)) { yield } : yield
+#  end
+#end
+#World(WithinHelpers)
 
 # Single-line step scoper
-When /^(.*) within (.*[^:])$/ do |step, parent|
-  with_scope(parent) { When step }
-end
+#When /^(.*) within (.*[^:])$/ do |step, parent|
+#  with_scope(parent) { When step }
+#end
 
 # Multi-line step scoper
-When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
-  with_scope(parent) { When "#{step}:", table_or_string }
-end
+#When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
+#  with_scope(parent) { When "#{step}:", table_or_string }
+#end
 
 #--------- Above copied from old program
 
@@ -46,13 +46,6 @@ When /^(?:|I )go to "([^"]*)"$/ do |button|
   click_button(button)
 end
 
-#Then(/^I should be on the Login page$/) do
-#  pending # express the regexp above with the code you wish you had
-#end
-
-#{}When(/^I click in the Contact Us button$/) do
-#{}  pending # express the regexp above with the code you wish you had
-#{}end
 
 When /^(?:|I )press "([^"]*)"$/ do |button|
   click_button(button)
@@ -61,8 +54,10 @@ end
 #----------------------------------------- 4 passing
 #You can implement step definitions for undefined steps with these snippets:
 
-#When(/^I follow “name”$/) do
-#  pending # express the regexp above with the code you wish you had
+When(/^I follow "name"$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
 ##Then(/^I should see “Charity Name” in alphabetical order$/) do
  # pending # express the regexp above with the code you wish you had
 #end
