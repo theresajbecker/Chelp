@@ -34,6 +34,11 @@ module NavigationHelpers
       '/login'
 
 
+    # Contact Us
+    when /^the Contact Us page$/
+      '/contact_us'
+
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
