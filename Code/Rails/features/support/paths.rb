@@ -18,7 +18,7 @@ module NavigationHelpers
 
     #Charities
     when /^the Chelp home page$/
-      '/chelp'
+      '/charities'
 
 
     # Users
