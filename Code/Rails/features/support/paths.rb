@@ -17,7 +17,7 @@ module NavigationHelpers
       '/'
 
     #Charities
-    when /^the Charities page$/
+    when /^the Chelp home page$/
       '/chelp'
 
 
@@ -32,7 +32,7 @@ module NavigationHelpers
     # Login
     when /^the Login page$/
       '/login'
-    
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
