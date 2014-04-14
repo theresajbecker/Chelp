@@ -10,7 +10,7 @@ Background: Charities do not already exist
 
 Scenario: Create a Charity
   When I fill in the following:
-    | Charity Name| Super Great Charity   |
+    | Name | Super Great Charity   |
     | Description |  Charity for Adoption  |
     | Filter Flags  | Christian  |
   And I press "Create"
