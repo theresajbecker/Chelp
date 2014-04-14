@@ -4,7 +4,11 @@ Feature: The Chelp Homepage
  Background: Charities have been added to database
   
   Given the following charities exist:
-  | TestName  | TestDescription | TestFlags |
+    | name       | description      | filter_flags |
+    | TestName   | TestDescription  | TestFlags    |
+    | CTestName  | CTestDescription | Flags        |
+    | BTestName  | BTestDescription | Flags        |
+    | ATestName  | ATestDescription | Flags        |
 
   And I am on the Chelp home page
 
@@ -21,5 +25,6 @@ Scenario: Navigate to Sign-Up page
   Then I should be on the New User page
 
 Scenario: Organize Charities by Name
-  When I follow "charity_name"
+  When I follow "Name"
+  When I follow "Name"
   Then I should see charity names in alphabetical order

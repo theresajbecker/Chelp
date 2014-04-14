@@ -8,8 +8,8 @@
 %table#charities
   %thead
     %tr
-      %th= "Name"
-      %th= "Description"
+      %th{:class => isHighlighted("name")}= sortable "name", "Name"
+      %th{:class => isHighlighted("description")}= sortable "description", "Description"
   %tbody
     %tr
     - @charities.each do |charity|
