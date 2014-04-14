@@ -2,8 +2,10 @@ class CharitiesController < ApplicationController
   before_action :set_charity, only: [:show, :edit, :update, :destroy]
 
   # GET /charities
-  def index
-    @charities = Charity.all
+def index
+    session[:sort] = params[:sort].presence || session[:sort].presence || 'name'
+    session[:direction] = params[:direction].presence || session[:direction].presence || 'asc'
+    @charities = Charity.order(session[:sort] + " " + session[:direction])
   end
 
   # GET /charities/1
