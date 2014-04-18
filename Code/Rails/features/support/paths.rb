@@ -20,6 +20,9 @@ module NavigationHelpers
     when /^the Chelp home page$/
       '/charities'
 
+    when /^the New Charity page$/
+      '/charities/new'
+
 
     # Users
     when /^the Users page$/
@@ -33,10 +36,12 @@ module NavigationHelpers
     when /^the Login page$/
       '/login'
 
-
     # Contact Us
+    when /^the Messages page$/
+      '/messages'
+
     when /^the Contact Us page$/
-      '/contact_us'
+      '/messages/new'
 
 
     # Add more mappings here.

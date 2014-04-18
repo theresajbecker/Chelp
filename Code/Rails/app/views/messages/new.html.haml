@@ -1,0 +1,22 @@
+%h1 Contact Us
+
+= link_to "Home", charities_path
+
+= form_tag messages_path do
+
+  = label :message, :first_name, 'First Name'
+  = text_field :message, 'first_name'
+
+  = label :message, :first_name, 'Last Name'
+  = text_field :message, 'last_name'
+
+  = label :message, :first_name, 'Username'
+  = text_field :message, 'username'
+
+  = label :message, :first_name, 'Email'
+  = text_field :message, 'email'
+
+  = label :message, :first_name, 'Message'
+  = text_field :message, 'message'
+  
+  = submit_tag 'Submit'

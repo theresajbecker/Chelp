@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b First name:
+  = @message.first_name
+%p
+  %b Last name:
+  = @message.last_name
+%p
+  %b Username:
+  = @message.username
+%p
+  %b Email:
+  = @message.email
+%p
+  %b Message:
+  = @message.message
+
+= link_to 'Edit', edit_message_path(@message)
+\|
+= link_to 'Back', messages_path
