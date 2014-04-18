@@ -11,9 +11,12 @@ Scenario: Submit Feedback
     | Violator's Username | ErikKierstead   |
     | Email       | alec_thil@hotmail.com   |
     | Message     | User Swore Like A Sailor|
-  And I press "Submit"
-  Then I should be on the Chelp home page
 
-Scenario: Redirecting to the homepage
+ And I press "Submit"
+  Then the following messages should exist
+    | Alec  | Thilenius | AThilenius | ErikKierstead | alec_thil@hotmail.com | User Swore Like A Sailor |
+
+Scenario: Redirecting to the homepage from Contact Us
+  Given I am on the Report User page
   When I follow "Home"
-  Then I should be on to the Chelp home page
+  Then I should be on the Chelp home page
