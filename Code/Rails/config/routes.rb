@@ -1,4 +1,6 @@
 Chelp::Application.routes.draw do
+  resources :reports
+
   resources :messages
 
   get "contact_us/index"
