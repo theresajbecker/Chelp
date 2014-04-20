@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(version: 20140418233457) do
 
   add_index "reports", ["user_id"], name: "index_reports_on_user_id"
 
+  create_table "reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "charity_id"
+    t.integer  "rating"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reviews", ["charity_id"], name: "index_reviews_on_charity_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
