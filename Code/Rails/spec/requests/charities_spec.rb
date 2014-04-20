@@ -8,4 +8,13 @@ describe "Charities" do
       response.status.should be(200)
     end
   end
+  
+  describe "GET /charities/new" do
+    it "Should Let me Fill Out a Name"
+    it "Should Let me Fill Out a Description"
+    it "Should Let me Fill Out Filter Flags"
+    it "Should Let me Select Create"
+    
+    #get charities_path
+  end
 end
