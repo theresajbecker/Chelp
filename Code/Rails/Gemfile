@@ -14,7 +14,12 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'turbolinks'
+  gem 'haml'
   gem 'haml-rails'
+  gem 'haml-contrib'
+  gem 'RedCloth'
+  gem 'bootstrap-sass', '2.3.2.0'
+  gem 'sprockets', '2.11.0'
 end
 group :test do
   gem 'cucumber-rails'
