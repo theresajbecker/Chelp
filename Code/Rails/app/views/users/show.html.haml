@@ -1,2 +1,16 @@
-%h3 #{current_user.first_name} #{current_user.last_name}
-%img{:src => current_user_picture(200)}
+.tabbable
+  / Only required for left/right tabs
+  %ul.nav.nav-tabs
+    %li.active
+      %a{"data-toggle" => "tab", href: "#tab1"} User
+    %li.disabled
+      %a{"data-toggle" => "tab", href: "#tab2"} Admin
+  .tab-content
+    #tab1.tab-pane.fade.active
+      .col-lg-6
+        %h3 #{current_user.first_name} #{current_user.last_name}
+        %img{:src => current_user_picture(200)}
+      .col-lg-6
+        %p Hello Side Text
+    #tab2.tab-pane.fade
+      %p Admin page here...

@@ -1,12 +1,10 @@
-%h1 User Login
-
-%div.center-block
-  = form_tag sessions_path do
-
-    = label :session, :email, 'Email Address'
-    = text_field :session, 'email'
-
-    = label :session, :description, 'Password'
-    = text_field :session, 'password'
-  
-    = submit_tag 'Login'
+.container
+  .content.loginWindow
+    %form.form-signin{action: "login", method: "post"}
+      %h2.form-signin-heading Please sign in
+      %input.input-block-level{placeholder: "Email address", type: "email", name: "email"}
+      %input.input-block-level{placeholder: "Password", type: "password", name: "password"}
+      %label.checkbox
+        %input{type: "checkbox", value: "remember-me"}
+        Remember me
+      %button.btn.btn-large.btn-primary{type: "submit"} Sign in

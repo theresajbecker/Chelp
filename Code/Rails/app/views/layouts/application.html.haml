@@ -15,17 +15,19 @@
         %a.myTestType{:href => "/charities"} Chelp
         %ul.nav.pull-right
           - if session[:user] != nil
-            %a.brand{:href => user_path(session[:user])} #{current_user.first_name}
-            %a.brand{:href => "/logout"} Logout
+            %img.img-circle.verticalGoogle{:src => current_user_picture(30)}
+            %a.space-right{:href => user_path(session[:user])} #{current_user.first_name}
+            %a.space-right{:href => "/logout"} Logout
+            %a.space-right{:href => "/messages/new"} Contact Us
           - else
-            %a.brand{:href => "/login"} Login
-            %a.pull-right.verticalGoogle.zocial.google{:href => "/auth/google_oauth2"} Sign in with Google
-          %a.brand{:href => "/messages/new"} Contact Us
+            %a.space-right{:href => "/login"} Login
+            %a.space-right{:href => "/messages/new"} Contact Us
+            %a.zocial.google.space-right.pad-top{:href => "/auth/google_oauth2"} Sign in with Google
     #main{:role => "main"}
       .container
-        .content
-          .row
-            .span12
-              = render 'layouts/messages'
-              = yield
-          %footer
+        -#.content
+          -#.row
+            -#.span12
+        = render 'layouts/messages'
+        = yield
+    %footer

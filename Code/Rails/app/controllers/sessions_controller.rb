@@ -4,17 +4,19 @@ class SessionsController < ApplicationController
   # POST /sessions
   def create
 
-    user = User.find_by email: session_params[:email]
+    user = User.find_by email: params[:email]
 
     if user == nil
-      redirect_to new_session_path, notice: 'Failed to find email address'
+      flash[:error] = "Wrong email address!"
+      redirect_to login_path
     else
 
-      if session_params[:password] == user.password
+      if params[:password] == user.password
         session[:user] = user.id
         redirect_to charities_path
       else
-        redirect_to new_session_path, notice: 'Password is wrong CHANGE THIS!'
+        flash[:error] = "Password is wrong!"
+        redirect_to login_path
       end
 
     end

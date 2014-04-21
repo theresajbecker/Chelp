@@ -6,6 +6,7 @@ Chelp::Application.routes.draw do
   resources :sessions, only: [:index, :new, :destroy, :fromOAuth]
   
   get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'
 
   get 'contact_us' => 'messages#new'
