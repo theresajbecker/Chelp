@@ -11,14 +11,15 @@
     %header.navbar.navbar-fixed-top.navbar-inverse
       %nav.navbar-inner
         .container
+        -# =image_tag asset_path('ChelpIcon.png'), :size => '40x40'
         %a.myTestType{:href => "/charities"} Chelp
         %ul.nav.pull-right
           - if session[:user] != nil
-            %a.brand{:href => user_path(session[:user].id)} #{session[:user].first_name}
+            %a.brand{:href => user_path(session[:user])} #{current_user.first_name}
             %a.brand{:href => "/logout"} Logout
           - else
             %a.brand{:href => "/login"} Login
-            %a.zocial.google{:href => "/auth/google_oauth2"} Sign in with Google
+            %a.pull-right.verticalGoogle.zocial.google{:href => "/auth/google_oauth2"} Sign in with Google
           %a.brand{:href => "/messages/new"} Contact Us
     #main{:role => "main"}
       .container

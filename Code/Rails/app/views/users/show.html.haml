@@ -1,6 +1,2 @@
-%p#notice= notice
-
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+%h3 #{current_user.first_name} #{current_user.last_name}
+%img{:src => current_user_picture(200)}

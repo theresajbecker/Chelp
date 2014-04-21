@@ -4,14 +4,14 @@ class SessionsController < ApplicationController
   # POST /sessions
   def create
 
-    user = User.find_by login: session_params[:username]
+    user = User.find_by email: session_params[:email]
 
     if user == nil
-      redirect_to new_session_path, notice: 'Failed to find user'
+      redirect_to new_session_path, notice: 'Failed to find email address'
     else
 
       if session_params[:password] == user.password
-        session[:user] = user
+        session[:user] = user.id
         redirect_to charities_path
       else
         redirect_to new_session_path, notice: 'Password is wrong CHANGE THIS!'
@@ -39,6 +39,15 @@ class SessionsController < ApplicationController
     p "Got something from Google:"
     p env["omniauth.auth"]
 
+    p "======================================================================"
+    p "======================================================================"
+
+    user = User.from_oauth(env["omniauth.auth"])
+    session[:user] = user.id
+    redirect_to charities_path
+
+    p "Created User:"
+    p user
     p "======================================================================"
     p "======================================================================"
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140418233457) do
+ActiveRecord::Schema.define(version: 20140421010257) do
 
   create_table "charities", force: true do |t|
     t.string   "name"
@@ -53,10 +53,17 @@ ActiveRecord::Schema.define(version: 20140418233457) do
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 
   create_table "users", force: true do |t|
+    t.string   "oauth_provider"
+    t.string   "oauth_uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "login"
+    t.string   "gender"
+    t.string   "picture"
+    t.string   "email"
     t.string   "password"
+    t.string   "permissions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
