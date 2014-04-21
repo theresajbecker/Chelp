@@ -1,11 +1,12 @@
 %h1 User Login
 
-= form_tag sessions_path do
+%div.center-block
+  = form_tag sessions_path do
 
-  = label :session, :username, 'User Name'
-  = text_field :session, 'username'
+    = label :session, :username, 'User Name'
+    = text_field :session, 'username'
 
-  = label :session, :description, 'Password'
-  = text_field :session, 'password'
+    = label :session, :description, 'Password'
+    = text_field :session, 'password'
   
-  = submit_tag 'Login'
+    = submit_tag 'Login'

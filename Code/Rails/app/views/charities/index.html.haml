@@ -5,16 +5,19 @@
 = link_to "Login", login_path
 = link_to "Contact Us", new_message_path
 
-%table#charities
-  %thead
-    %tr
-      %th{:class => isHighlighted("name")}= sortable "name", "Name"
-      %th{:class => isHighlighted("description")}= sortable "description", "Description"
-  %tbody
-    %tr
-    - @charities.each do |charity|
+.table
+  %table#charities
+    %thead
       %tr
-        %td= link_to "#{charity.name}", charity_path(charity)
-        %td= "#{charity.description}"
+        %th{:class => isHighlighted("name")}= sortable "name", "Name"
+        %th{:class => isHighlighted("description")}= sortable "description", "Description"
+    .table-striped
+      .table-hover
+        %tbody
+          %tr
+          - @charities.each do |charity|
+            %tr
+              %td= link_to "#{charity.name}", charity_path(charity)
+              %td= "#{charity.description}"
 
 = link_to 'Add new Charity', new_charity_path

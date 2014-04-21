@@ -1,23 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: [:show, :edit, :update, :destroy]
-
-  # GET /sessions
-  def index
-    #@sessions = Session.all
-  end
-
-  # GET /sessions/1
-  def show
-  end
-
-  # GET /sessions/new
-  def new
-    #@session = Session.new
-  end
-
-  # GET /sessions/1/edit
-  def edit
-  end
+  before_action :set_session, only: [:show, :edit, :update, :destroy, :fromOAuth]
 
   # POST /sessions
   def create
@@ -39,15 +21,6 @@ class SessionsController < ApplicationController
 
   end
 
-  # PATCH/PUT /sessions/1
-  def update
-    #if @session.update(session_params)
-    #  redirect_to @session, notice: 'Session was successfully updated.'
-    #else
-    #  render action: 'edit'
-    #end
-  end
-
   # DELETE /sessions/1
   def destroy
     if session[:user] != nil
@@ -57,6 +30,17 @@ class SessionsController < ApplicationController
     redirect_to charities_path
     #@session.destroy
     #redirect_to sessions_url, notice: 'Session was successfully destroyed.'
+  end
+
+  def fromOAuth
+    p "======================================================================"
+    p "======================================================================"
+
+    p "Got something from Google:"
+    p env["omniauth.auth"]
+
+    p "======================================================================"
+    p "======================================================================"
   end
 
   private
@@ -69,4 +53,5 @@ class SessionsController < ApplicationController
     def session_params
       params.require(:session).permit(:username, :password)
     end
+    
 end
