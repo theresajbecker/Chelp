@@ -1,23 +1,61 @@
-%h1 All Charities
-
-
-= link_to "Sign-Up", new_user_path
-= link_to "Login", login_path
-= link_to "Contact Us", new_message_path
-
-.table
-  %table#charities
-    %thead
-      %tr
-        %th{:class => isHighlighted("name")}= sortable "name", "Name"
-        %th{:class => isHighlighted("description")}= sortable "description", "Description"
-    .table-striped
-      .table-hover
-        %tbody
-          %tr
-          - @charities.each do |charity|
-            %tr
-              %td= link_to "#{charity.name}", charity_path(charity)
-              %td= "#{charity.description}"
-
-= link_to 'Add new Charity', new_charity_path
+#wrapper
+  / Sidebar
+  #sidebar-wrapper
+    %ul.sidebar-nav
+      %li.sidebar-brand
+        %h2 Filter
+      %li
+        
+      %li
+        .col-6
+          %h4 Region
+        .col-6
+          %select.form-control
+            %option All
+            %option US
+            %option Africa
+            %option South America
+            %option Asia
+            %option USA
+      %li
+        .col-6
+          %h4 Overhead
+        .col-6
+          %select.form-control
+            %option < 100%
+            %option < 80%
+            %option < 60%
+            %option < 40%
+            %option < 20%
+            %option < 10%
+            %option <  5%
+            %option <  1%
+      %li
+        %p
+        %p
+        %p
+        %a.btn.btn-default.btn-lg{href: "#", role: "button"} Apply
+  / Page content
+  #page-content-wrapper
+    .content
+      .page-content.inset
+        .row
+        .well
+          .jumbotron
+            %h1 Welcome to Chelp!
+            %p Chelp is an open source projected aimed at providing users with a clear pictures of our world's charities. Our mission is to better the state of charities and arm people with the information they need to make well informed donation decisions.
+            %p
+            %a.btn.btn-primary.btn-lg{href: "#", role: "button"} Learn more »
+        -@charities.each do |charity|
+          .col-12
+            .well 
+              %a{href: charity_path(charity)} #{charity.name}
+/ JavaScript
+%script{src: "js/jquery-1.10.2.js"}
+%script{src: "js/bootstrap.js"}
+/ Custom JavaScript for the Menu Toggle
+:javascript
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("active");
+  });   
