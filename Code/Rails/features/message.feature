@@ -12,7 +12,7 @@ Scenario: Submit Feedback
     | Email       | alec_thil@hotmail.com   |
     | Message     | Your app sucks total... |
 
-  And I press "Submit"
+  And I press "Create"
   Then the following messages should exist
     | Alec  | Thilenius | AThilenius | alec_thil@hotmail.com | Your app sucks total... |
 
