@@ -9,17 +9,20 @@ describe 'layouts/application' do
       @logoutText = ["Chelp", "Logout", "Contact Us"]
     end
     
-    it "User is Logged in" do
-      assign(:user, "test user")
-      render
-      render.should contain("test")
-      @loginText.each { |text| rendered.should contain(text) }
-    end
-    
-    it "User is Not Logged in" do
-      assign(:user, nil)
+    it "should display links for when user logged in" do
+   
+      session[:user] = "test"
+     
+      #Test fails because Not Real User.  How to fix..
+       
       render
       @logoutText.each { |text| rendered.should contain(text) }
+    end
+    
+    it "should display links for when user not logged in" do
+      session[:user] = nil
+      render
+      @loginText.each { |text| rendered.should contain(text) }
     end
 
   end
