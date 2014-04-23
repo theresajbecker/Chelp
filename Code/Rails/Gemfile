@@ -14,12 +14,13 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'turbolinks'
-  gem 'haml'
+  #gem 'haml'
   gem 'haml-rails'
-  gem 'haml-contrib'
+  #gem 'haml-contrib'
   gem 'RedCloth'
   gem 'sprockets', '2.11.0'
   gem "omniauth-google-oauth2", "~> 0.2.1"
+  gem 'bootstrap-sass', '2.3.2.0'
 end
 group :test do
   gem 'cucumber-rails', :require => false

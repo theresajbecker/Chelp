@@ -7,10 +7,10 @@ describe "Messages" do
       visit '/messages'
       expect(page).to have_content('Listing messages')
     end
-  
   end
   
   describe "GET /messages/new" do
+    #before { visit messages_path } // same as below before(:each) visit 
   
     before(:each) do
       visit '/messages/new'
@@ -50,20 +50,20 @@ describe "Messages" do
       expect(page).to have_button("Submit")
       click_button "Submit"
       expect(page).to have_content('Message was successfully created.')
+    end 
 
-      #it "should let me go back home to message page" do
-      #  click_link "Back"
-      #  expect(page).to have_content('Listing messages')
-      #end
-      
-      #it "should let me edit the message" do
-      #  click_link "Edit"
-      #  expect(page).to have_content('Editing message')
-      #end
-      
+    it "should let me go back to message page" do
+      expect(page).to have_link("Back")
+      click_link("Back")
+      expect(page).to have_content("Listing messages")
     end
-  
-  
+      
+    #it "should let me edit the message" do
+      #expect(page).to have_link("Edit")
+      #click_link "Edit"
+      #expect(page).to have_content('Editing message')
+    #end
+      
   end
   
 end
