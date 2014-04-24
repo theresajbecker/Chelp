@@ -21,6 +21,7 @@ group :development, :test do
   gem 'sprockets', '2.11.0'
   gem "omniauth-google-oauth2", "~> 0.2.1"
   gem 'bootstrap-sass', '2.3.2.0'
+  gem 'webrat'
 end
 group :test do
   gem 'cucumber-rails', :require => false
