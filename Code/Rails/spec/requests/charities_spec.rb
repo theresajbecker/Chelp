@@ -3,9 +3,9 @@ require 'spec_helper'
 describe "Charities" do
 
   describe "GET /charities" do
-    it "Should have the content 'All Charities'" do
+    it "Should have the content 'Filter'" do
       visit '/charities'
-      expect(page).to have_content('All Charities')
+      expect(page).to have_content('Filter')
     end
   end
   
@@ -35,7 +35,7 @@ describe "Charities" do
       click_button "Create"
       #I am sure there is a clever way to roll this into one command ;D
       redirect_to '/charities'
-      expect(page).to have_content('All Charities')
+      expect(page).to have_content('Filter')
     end
   
   end

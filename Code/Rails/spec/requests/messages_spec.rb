@@ -52,17 +52,27 @@ describe "Messages" do
       expect(page).to have_content('Message was successfully created.')
     end 
 
+describe "GET /messages/1/edit" do
+    before do
+      #vist '/messages'
+        @message = Message.create!(id: "5", first_name: "test", last_name: "test", username: "test", email: "test", message: "test", created_at: "2012-04-23", updated_at: " 2012-04-23 22:30:14:16")
+      visit message_path(@message)
+      #click_button "Submit"
+
+      p page.body
+    end
     it "should let me go back to message page" do
-      expect(page).to have_link("Back")
-      click_link("Back")
+      #expect(page).to have_link("Back")
+      find_link('Back').click #it can find the Edit link but not the Back link?
       expect(page).to have_content("Listing messages")
     end
       
-    #it "should let me edit the message" do
-      #expect(page).to have_link("Edit")
-      #click_link "Edit"
-      #expect(page).to have_content('Editing message')
-    #end
+    it "should let me edit the message" do
+      expect(page).to have_link("Edit")
+      click_link "Edit"
+      expect(page).to have_content('Editing message')
+    end
+  end
       
   end
   

@@ -43,6 +43,10 @@ module NavigationHelpers
     when /^the Contact Us page$/
       '/messages/new'
 
+    #Reports
+  when /^the Report Users page$/
+      '/messages/report_user'
+
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

@@ -21,8 +21,17 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
+    p "=========================================================================================="
+    p "=========================================================================================="
+    p "=========================================================================================="
+
+    p "Params: "
+    p message_params
+
     @message = Message.new(message_params)
 
+    p "Message: "
+    p @message
     if @message.save
       redirect_to @message, notice: 'Message was successfully created.'
     else
