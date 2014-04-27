@@ -34,6 +34,14 @@ class User < ActiveRecord::Base
 	      :permissions => "User")
 	end
 
+	def get_picture(size)
+		if self.picture == nil || self.picture == ""
+			return "http://www.pinkstarmarketing.com/wp-content/uploads/2014/04/null.jpg"
+		else
+			return self.picture.gsub(/\Ahttps:/, '').gsub(/\d+\z/, "#{size}")
+		end
+	end
+
 end
 
       
