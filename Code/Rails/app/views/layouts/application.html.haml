@@ -14,7 +14,7 @@
       %a.myTestType.pad-top{:href => "/charities"} Chelp
       %ul.nav
         - if session[:user] != nil
-          %img.img-circle.verticalGoogle{:src => current_user_picture(30)}
+          %img.img-circle.verticalGoogle{:src => current_user.get_picture(30)}
           %a.navbar-text.pull-right{:href => "/messages/new"} Contact Us
           %a.navbar-text.pull-right{:href => "/logout"} Logout
           %a.navbar-text.pull-right{:href => user_path(session[:user])} #{current_user.first_name}
