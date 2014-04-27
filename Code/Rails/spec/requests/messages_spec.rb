@@ -59,8 +59,9 @@ describe "GET /messages/1/edit" do
       visit message_path(@message)
       #click_button "Submit"
 
-      p page.body
+      #p page.body
     end
+    
     it "should let me go back to message page" do
       #expect(page).to have_link("Back")
       find_link('Back').click #it can find the Edit link but not the Back link?

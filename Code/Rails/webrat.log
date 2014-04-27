@@ -1,0 +1,6 @@
+# Logfile created on 2014-04-23 15:07:44 -0300 by logger.rb/31641
+D, [2014-04-23T15:07:44.093214 #23979] DEBUG -- : REQUESTING PAGE: GET /charities with {} and HTTP headers {}
+D, [2014-04-23T15:07:44.354356 #23979] DEBUG -- : REQUESTING PAGE: GET /charities/new with {} and HTTP headers {}
+D, [2014-04-23T15:07:44.387413 #23979] DEBUG -- : REQUESTING PAGE: GET /charities/new with {} and HTTP headers {}
+D, [2014-04-23T15:07:44.402517 #23979] DEBUG -- : REQUESTING PAGE: GET /charities/new with {} and HTTP headers {}
+D, [2014-04-23T15:07:44.446149 #23979] DEBUG -- : REQUESTING PAGE: GET /charities/new with {} and HTTP headers {}
