@@ -11,18 +11,18 @@
     %nav.navbar-inner
       .container
       -# =image_tag asset_path('ChelpIcon.png'), :size => '40x40'
-      %a.myTestType{:href => "/charities"} Chelp
-      %ul.nav.pull-right
+      %a.myTestType.pad-top{:href => "/charities"} Chelp
+      %ul.nav
         - if session[:user] != nil
           %img.img-circle.verticalGoogle{:src => current_user_picture(30)}
-          %a.space-right{:href => user_path(session[:user])} #{current_user.first_name}
-          %a.space-right{:href => "/logout"} Logout
-          %a.space-right{:href => "/messages/new"} Contact Us
+          %a.navbar-text.pull-right{:href => "/messages/new"} Contact Us
+          %a.navbar-text.pull-right{:href => "/logout"} Logout
+          %a.navbar-text.pull-right{:href => user_path(session[:user])} #{current_user.first_name}
         - else
-          %a.space-right{:href => "/login"} Login
-          %a.space-right{:href => "/users/new"} Create Account
-          %a.space-right{:href => "/messages/new"} Contact Us
-          %a.zocial.google.space-right.pad-top{:href => "/auth/google_oauth2"} Sign in with Google
+          %a.zocial.google.pull-right.space-right.pad-top{:href => "/auth/google_oauth2"} Sign in with Google
+          %a.navbar-text.pull-right{:href => "/messages/new"} Contact Us
+          %a.navbar-text.pull-right{:href => "/users/new"} Sign Up!
+          %a.navbar-text.pull-right{:href => "/login"} Login
   #main{:role => "main"}
     -#.container
     -#.content
