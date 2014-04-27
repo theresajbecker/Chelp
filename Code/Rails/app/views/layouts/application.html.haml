@@ -22,11 +22,11 @@
           %a.space-right{:href => "/login"} Login
           %a.space-right{:href => "/messages/new"} Contact Us
           %a.zocial.google.space-right.pad-top{:href => "/auth/google_oauth2"} Sign in with Google
-  -##main{:role => "main"}
+  #main{:role => "main"}
     -#.container
     -#.content
     -#.row
-    -#.span12
-  = render 'layouts/messages'
-  = yield
+    .span12
+      = render 'layouts/messages'
+      = yield
 %footer

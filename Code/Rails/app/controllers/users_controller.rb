@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @users = User.all
   end
 
   # GET /users/new
@@ -21,13 +22,35 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
 
-    if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
-    else
-      render action: 'new'
+    # Incompleate Fields Check
+    params.each do |param|
+      if param == nil || param == ""
+        flash[:error] = "Please fill in all fields"
+        redirect_to new_user_path
+        return
+      end
     end
+
+    # Duplicate Email Check
+    if User.find_by email: params[:email] != nil
+      flash[:error] = "This email address is already in use"
+      redirect_to new_users_path
+      return
+    end
+
+    # Differnt Password Check
+    if params[:password_one] != params[:password_two]
+      flash[:error] = "Passwords did not match"
+      redirect_to new_user_path
+      return
+    end
+
+    user = User.from_form(params)
+    session[:user] = user.id
+    flash[:notice] = "Welcome to Chelp #{params[:first_name]}"
+    redirect_to charities_path
+
   end
 
   # PATCH/PUT /users/1
@@ -51,8 +74,4 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def user_params
-      params[:user]
-    end
 end

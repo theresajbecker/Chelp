@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
 	def self.from_oauth(auth)
 		User.where(:oauth_provider => auth.provider, :oauth_uid => auth.uid).first_or_initialize do |user|
 
@@ -17,6 +18,22 @@ class User < ActiveRecord::Base
 	      user.save!
 	    end
 	end
+
+	def self.from_form(params)
+		User.create!(
+	      :oauth_provider => "",
+	      :oauth_uid => "",
+	      :oauth_token => "",
+	      :oauth_expires_at => "",
+	      :first_name => params[:first_name],
+	      :last_name => params[:last_name],
+	      :gender => "",
+	      :picture => "",
+	      :email => params[:email],
+	      :password => params[:password],
+	      :permissions => "User")
+	end
+
 end
 
       

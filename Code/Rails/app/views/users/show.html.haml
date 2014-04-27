@@ -1,16 +1,27 @@
 .tabbable
   / Only required for left/right tabs
   %ul.nav.nav-tabs
-    %li.active
+    %li
       %a{"data-toggle" => "tab", href: "#tab1"} User
-    %li.disabled
+    %li.active
       %a{"data-toggle" => "tab", href: "#tab2"} Admin
   .tab-content
-    #tab1.tab-pane.fade.active
+    #tab1.tab-pane
       .col-lg-6
         %h3 #{current_user.first_name} #{current_user.last_name}
         %img{:src => current_user_picture(200)}
       .col-lg-6
         %p Hello Side Text
-    #tab2.tab-pane.fade
-      %p Admin page here...
+    #tab2.tab-pane.active
+      -# Admin Page
+      .container
+        .well
+          %h2 Users
+          -@users.each do |user|
+            .well
+              .col-md-6.col-lg-6
+                %a{href: user_path(user)} #{user.first_name} #{user.last_name}
+              .col-md-6.col-lg-6
+                - if user.permissions == "User"
+                  %a.btn.btn-default.btn-sm.up10.pull-right{href: "#", role: "button"} Promote to Admin
+              %p 
