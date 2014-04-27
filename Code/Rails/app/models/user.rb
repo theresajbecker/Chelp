@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 	      :gender => "",
 	      :picture => "",
 	      :email => params[:email],
-	      :password => params[:password],
+	      :password => params[:password_one],
 	      :permissions => "User")
 	end
 
