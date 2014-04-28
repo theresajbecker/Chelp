@@ -23,7 +23,29 @@ def index
 
   # POST /charities
   def create
-    @charity = Charity.create!(charity_params)
+
+    params.each do |param|
+      if param == nil || param == ""
+        flash[:error] = "Please fill in all fields"
+        redirect_to new_user_path
+        return
+      end
+    end
+
+    #New Charity Name
+    if Charity.find_by name: params[:name] != nil
+      flash[:error] = "This Charity has already been created"
+      redirect_to new_charities_path
+      return
+    end
+
+    if Charity.find_by charity_homepage: params[:charity_homepage] != nil
+      flash[:error] = "This Charity has already been created"
+      redirect_to new_charities_path
+      return
+    end
+
+    @charity = Charity.create!(params)
     flash[:notice] = "#{@charity.name} was successfully created."
     redirect_to charities_path
   end
@@ -51,7 +73,7 @@ def index
 
     # Only allow a trusted parameter "white list" through.
     def charity_params
-      params.require(:charity).permit(:name, :description, :filter_flags)
+      params.require(:charity).permit(:name, :description, :filter_flags, :geographic_region, :area_of_impact, :percent_of_overhead, :religious_affiliation, :how_to_donate, :charity_homepage)
       #params[:charity]
     end
 end

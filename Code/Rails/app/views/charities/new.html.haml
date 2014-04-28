@@ -1,14 +1,43 @@
-%h1 Create New Charity
+.container.thinWindow
+  .content
+    %h2 Create Charity
+    %h2 
+    %form{role: "form", action: "/charities", method: "post"} 
+      .form-group
+        %label{for: "CharityNameInput"} Charity Name
+        %input#CharityNameInput.form-control{placeholder: "Charity Name", type: "name", name: "name"}
 
-= form_tag charities_path do
+      .form-group
+        %label{for: "DescriptionInput"} Description
+        %input#DescriptionInput.form-control{placeholder: "Tell us about the Charity", type: "text", name: "description"}
 
-  = label :charity, :name, 'Name'
-  = text_field :charity, 'name'
+      .form-group
+        %label{for: "Geographic Area of Impact"} Geographic Area of Impact
+        %input#GeographicAreaofImpactInput.form-control{placeholder: "Colorado", type: "region", name: "geographic_region"}
 
-  = label :charity, :description, 'Description'
-  = text_field :charity, 'description'
-  
-  = label :charity, :filter_flags, 'Filter Flags'
-  = text_field :charity, 'filter_flags'
-  
-  = submit_tag 'Create'
+      .form-group
+        %label{for: "Area of Impact"} Area of Impact
+        %input#AreaOfImpactInput.form-control{placeholder: "Who or what benefits from the charity?", type: "impact", name: "area_of_impact"}
+
+      .form-group
+        %label{for: "Percent of Overhead"} Percent of Overhead
+        %input#PercentOfOverhead.form-control{placeholder: "What percentage of donations go to direct care?", type: "overhead", name: "percent_of_overhead"}
+
+      .form-group
+        %label{for: "Religious Affiliation"} Religious Affiliation
+        %input#ReligiousAffiliation.form-control{placeholder: "What religion is this charity affiliated with?", type: "religion", name: "religious_affiliation"}
+
+      .form-group
+        %label{for: "How to Donate"} How to Donate
+        %input#HowToDonate.form-control{placeholder: "Copy and paste link to direct donation page here", type: "link to donate", name: "how_to_donate"}
+
+      .form-group
+        %label{for: "Charity Homepage"} Charity Homepage
+        %input#CharityHomepage.form-control{placeholder: "Copy and paste link to the Charity's homepage here", type: "link to homepage", name: "charity_homepage"}  
+        
+      %button.btn.btn-large.btn-primary{type: "submit"} Create
+
+
+
+
+
