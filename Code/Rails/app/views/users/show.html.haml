@@ -1,27 +1,38 @@
-.tabbable
-  / Only required for left/right tabs
-  %ul.nav.nav-tabs
-    %li
-      %a{"data-toggle" => "tab", href: "#tab1"} User
-    %li.active
-      %a{"data-toggle" => "tab", href: "#tab2"} Admin
-  .tab-content
-    #tab1.tab-pane
-      .col-lg-6
-        %h3 #{current_user.first_name} #{current_user.last_name}
-        %img{:src => current_user_picture(200)}
-      .col-lg-6
-        %p Hello Side Text
-    #tab2.tab-pane.active
-      -# Admin Page
-      .container
-        .well
+.container
+  .tabbable
+    / Only required for left/right tabs
+    %ul.nav.nav-tabs
+      %li.active
+        %a{"data-toggle" => "tab", href: "#tab1"} User
+
+      - if @user == current_user && current_user.permissions == "Admin"
+        %li
+          %a{"data-toggle" => "tab", href: "#tab2"} Admin
+
+    .tab-content
+      #tab1.tab-pane.active
+        %h3 #{@user.first_name} #{@user.last_name}
+        .col-md-3.col-lg-6
+          %img.width200{:src => @user.get_picture(200)}
+        .col-md-9.col-lg-6
+          %p Side Text
+          
+      - if @user == current_user && current_user.permissions == "Admin"
+        #tab2.tab-pane
+          -# Admin Page
           %h2 Users
           -@users.each do |user|
             .well
-              .col-md-6.col-lg-6
+              .col-md-1.col-lg-1
+                - if user.permissions == "Admin"
+                  %h4.up3 #{user.permissions}
+                - else
+                  %p #{user.permissions}
+              .col-md-5.col-lg-5
                 %a{href: user_path(user)} #{user.first_name} #{user.last_name}
               .col-md-6.col-lg-6
+
                 - if user.permissions == "User"
-                  %a.btn.btn-default.btn-sm.up10.pull-right{href: "#", role: "button"} Promote to Admin
+                  %td= link_to 'Promote To Admin', user, :method => :patch, class: "btn btn-default btn-sm up10 pull-right"
+                  %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default btn-sm up10 pull-right"
               %p 

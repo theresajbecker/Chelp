@@ -39,13 +39,14 @@
   #page-content-wrapper
     .content
       .page-content.inset
-        .row
-        .well
-          .jumbotron
-            %h1 Welcome to Chelp!
-            %p Chelp is an open source projected aimed at providing users with a clear pictures of our world's charities. Our mission is to better the state of charities and arm people with the information they need to make well informed donation decisions.
-            %p
-            %a.btn.btn-primary.btn-lg{href: "#", role: "button"} Learn more »
+        - if current_user == nil
+          .row
+          .well
+            .jumbotron
+              %h1 Welcome to Chelp!
+              %p Chelp is an open source projected aimed at providing users with a clear pictures of our world's charities. Our mission is to better the state of charities and arm people with the information they need to make well informed donation decisions.
+              %p
+              %a.btn.btn-primary.btn-lg{href: "/users/new", role: "button"} Sign Up!
         -@charities.each do |charity|
           .col-12
             .well 

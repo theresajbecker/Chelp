@@ -55,11 +55,18 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
-    else
-      render action: 'edit'
+
+    user = User.find(params[:id])
+
+    if current_user.permissions != "Admin"
+      flash[:error] = "You do not have the rights to perform that action"
+      redirect_to user_path(current_user)
+      return
     end
+
+    user.permissions = "Admin"
+    user.save!
+
   end
 
   # DELETE /users/1

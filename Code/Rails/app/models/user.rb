@@ -31,8 +31,16 @@ class User < ActiveRecord::Base
 	      :gender => "",
 	      :picture => "",
 	      :email => params[:email],
-	      :password => params[:password],
+	      :password => params[:password_one],
 	      :permissions => "User")
+	end
+
+	def get_picture(size)
+		if self == nil || self.picture == nil || self.picture == ""
+			return "http://www.pinkstarmarketing.com/wp-content/uploads/2014/04/null.jpg"
+		else
+			return self.picture.gsub(/\Ahttps:/, '').gsub(/\d+\z/, "#{size}")
+		end
 	end
 
 end
