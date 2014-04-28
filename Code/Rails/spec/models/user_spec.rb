@@ -4,7 +4,7 @@ describe User do
     before do
       #vist '/messages'
         @user = User.create!(id: "5", first_name: "test", last_name: "test", username: "test", email: "test", message: "test", created_at: "2012-04-23", updated_at: " 2012-04-23 22:30:14:16")
-      visit message_path(@message)
+      visit message_path(@user)
       #click_button "Submit"
 
       #p page.body
