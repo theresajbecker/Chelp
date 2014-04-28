@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
 
 	def self.from_oauth(auth)
