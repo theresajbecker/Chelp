@@ -24,7 +24,13 @@ class UsersController < ApplicationController
   def create
 
     # Incompleate Fields Check
-    params.each do |param|
+    p "================================================"
+    p "================================================"
+
+    p "New Users Controller got params:"
+    p params
+
+    params.each_value do |param|
       if param == nil || param == ""
         flash[:error] = "Please fill in all fields"
         redirect_to new_user_path
@@ -35,7 +41,7 @@ class UsersController < ApplicationController
     # Duplicate Email Check
     if User.find_by email: params[:email] != nil
       flash[:error] = "This email address is already in use"
-      redirect_to new_users_path
+      redirect_to new_user_path
       return
     end
 

@@ -32,8 +32,7 @@ def index
       end
     end
 
-    #New Charity Name
-    if Charity.find_by name: params[:name] != nil
+    if params[:name].present?
       flash[:error] = "This Charity has already been created"
       redirect_to new_charities_path
       return
