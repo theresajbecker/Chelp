@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe "charities/edit" do
   before(:each) do
-    @charity = assign(:charity, stub_model(Charity))
+    #@charity = assign(:charity) stub_model(Charity)) #checking to see if this helps
+	@charity = assign(:name, :description, :filter_flags, :geographic_region, :area_of_impact, :percent_of_overhead, :religious_affiliation, :how_to_donate, :charity_homepage)
   end
 
   it "renders the edit charity form" do

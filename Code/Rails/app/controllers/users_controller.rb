@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     end
 
     # Duplicate Email Check
-    if User.find_by email: params[:email] != nil
+    if User.exists?(:email => params[:email])
       flash[:error] = "This email address is already in use"
       redirect_to new_user_path
       return

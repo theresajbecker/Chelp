@@ -24,34 +24,49 @@ def index
   # POST /charities
   def create
 
-    params.each do |param|
+    params.each_value do |param|
       if param == nil || param == ""
         flash[:error] = "Please fill in all fields"
-        redirect_to new_user_path
+        redirect_to new_charity_path
         return
       end
     end
-
-    if params[:name].present?
+    
+    #if Charity.find_by name: params[:name] != nil
+    #if params[:name].present?
+    if Charity.exists?(params[:name])
+      p "==========================="
       flash[:error] = "This Charity has already been created"
-      redirect_to new_charities_path
+      redirect_to new_charity_path
       return
     end
 
-    if Charity.find_by charity_homepage: params[:charity_homepage] != nil
-      flash[:error] = "This Charity has already been created"
-      redirect_to new_charities_path
+    p "======================================================="
+    p "======================================================="
+    p "Find By Returned: "
+    p Charity.find_by name: params[:name]
+
+    if Charity.exists?(:name => params[:name])
+      p "DUPLICATE NAME!!"
+      flash[:error] = "Duplicate name"
+      redirect_to new_charity_path
       return
     end
 
-    @charity = Charity.create!(params)
+    if Charity.exists?(:charity => params[:charity])
+      flash[:error] = "This Charity has already been created"
+      redirect_to new_charity_path
+      return
+    end
+
+    @charity = Charity.create!(params[:charity]) #added this here RIGHT NOW to assign to charities? hopefully -tjb
     flash[:notice] = "#{@charity.name} was successfully created."
     redirect_to charities_path
   end
 
   # PATCH/PUT /charities/1
   def update
-    if @charity.update(charity_params)
+    if @charity.update_attributes(charity_params) #added word attributes for testing 
       redirect_to @charity, notice: 'Charity was successfully updated.'
     else
       render action: 'edit'
