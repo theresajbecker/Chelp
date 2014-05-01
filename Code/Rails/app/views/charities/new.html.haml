@@ -12,28 +12,32 @@
         %input#DescriptionInput.form-control{placeholder: "Tell us about the Charity", type: "text", name: "description"}
 
       .form-group
-        %label{for: "Geographic Area of Impact"} Geographic Area of Impact
+        %label{for: "GeographicAreaofImpactInput"} Geographic Area of Impact
         %input#GeographicAreaofImpactInput.form-control{placeholder: "Colorado", type: "region", name: "geographic_region"}
 
       .form-group
-        %label{for: "Area of Impact"} Area of Impact
+        %label{for: "AreaOfImpactInput"} Area of Impact
         %input#AreaOfImpactInput.form-control{placeholder: "Who or what benefits from the charity?", type: "impact", name: "area_of_impact"}
 
       .form-group
-        %label{for: "Percent of Overhead"} Percent of Overhead
+        %label{for: "PercentOfOverhead"} Percent of Overhead
         %input#PercentOfOverhead.form-control{placeholder: "What percentage of donations go to direct care?", type: "overhead", name: "percent_of_overhead"}
 
       .form-group
-        %label{for: "Religious Affiliation"} Religious Affiliation
+        %label{for: "ReligiousAffiliation"} Religious Affiliation
         %input#ReligiousAffiliation.form-control{placeholder: "What religion is this charity affiliated with?", type: "religion", name: "religious_affiliation"}
 
       .form-group
-        %label{for: "How to Donate"} How to Donate
+        %label{for: "HowToDonate"} How to Donate
         %input#HowToDonate.form-control{placeholder: "Copy and paste link to direct donation page here", type: "link to donate", name: "how_to_donate"}
 
       .form-group
-        %label{for: "Charity Homepage"} Charity Homepage
+        %label{for: "CharityHomepage"} Charity Homepage
         %input#CharityHomepage.form-control{placeholder: "Copy and paste link to the Charity's homepage here", type: "link to homepage", name: "charity_homepage"}  
+
+      .form-group
+        %label{for: "ImageURI"} Image URI
+        %input#ImageURI.form-control{placeholder: "Charity's image URI link", type: "link to charity image", name: "charity_image"}  
         
       %button.btn.btn-large.btn-primary{type: "submit"} Create
 

@@ -50,7 +50,9 @@
         -@charities.each do |charity|
           .col-12
             .well 
-              %a{href: charity_path(charity)} #{charity.name}
+              %a.h2{href: charity_path(charity)} #{charity.name}
+              .hr
+              %img.imageWidth100{:src => charity.charity_image}
 / JavaScript
 %script{src: "js/jquery-1.10.2.js"}
 %script{src: "js/bootstrap.js"}

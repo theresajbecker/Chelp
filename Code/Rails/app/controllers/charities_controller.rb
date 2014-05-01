@@ -32,34 +32,19 @@ def index
       end
     end
     
-    #if Charity.find_by name: params[:name] != nil
-    #if params[:name].present?
     if Charity.exists?(params[:name])
-      p "==========================="
       flash[:error] = "This Charity has already been created"
       redirect_to new_charity_path
       return
     end
 
-    p "======================================================="
-    p "======================================================="
-    p "Find By Returned: "
-    p Charity.find_by name: params[:name]
-
     if Charity.exists?(:name => params[:name])
-      p "DUPLICATE NAME!!"
       flash[:error] = "Duplicate name"
       redirect_to new_charity_path
       return
     end
 
-    if Charity.exists?(:charity => params[:charity])
-      flash[:error] = "This Charity has already been created"
-      redirect_to new_charity_path
-      return
-    end
-
-    @charity = Charity.create!(params[:charity]) #added this here RIGHT NOW to assign to charities? hopefully -tjb
+    @charity = Charity.create!(params)
     flash[:notice] = "#{@charity.name} was successfully created."
     redirect_to charities_path
   end

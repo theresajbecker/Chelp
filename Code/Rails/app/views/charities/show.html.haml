@@ -1,6 +1,39 @@
-%p#notice= notice
+.content
+  %img.imageWidth100{:src => @charity.charity_image}
+  %h1
+  .span12.hr
+  %h2 Mission
+  %p #{@charity.description}
+  %h1 
+  .span12.hr
+  %h2.up5 Reviews
+  -#@charities.each do |charity|
+  .well
+    %h3.up5 Sample Review Title One
+    %div.up5.italic.a{href: user_path(1)} User Sample One
+    %p 
+    .container
+      %p This is a sample review. The full review text would go here and probably be much longer than this.
+    %p 
+    %p 
+    %p.italic.pull-right Thursday May 1, 2014
 
+  .well
+    %h3.up5 Sample Review Title One
+    %div.up5.italic.a{href: user_path(1)} User Sample One
+    %p 
+    .container
+      %p This is a sample review. The full review text would go here and probably be much longer than this.
+    %p 
+    %p 
+    %p.italic.pull-right Thursday May 1, 2014
 
-= link_to 'Edit', edit_charity_path(@charity)
-\|
-= link_to 'Back', charities_path
+  .well
+    %h3.up5 Sample Review Title One
+    %div.up5.italic.a{href: user_path(1)} User Sample One
+    %p 
+    .container
+      %p This is a sample review. The full review text would go here and probably be much longer than this.
+    %p 
+    %p 
+    %p.italic.pull-right Thursday May 1, 2014
