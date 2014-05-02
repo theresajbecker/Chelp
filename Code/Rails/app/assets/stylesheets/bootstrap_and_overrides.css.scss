@@ -21,7 +21,28 @@ body { padding-top: 60px; }
 
 .backgroundColorBlue
 {
-  background-color: #99FFFF
+  background-color: #EEEEFF
+}
+
+.navbar-white
+{
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+.white {color:#FFFFFF;}      /* unvisited link */
+.white:visited {color:#FFFFFF;}  /* visited link */
+.white:hover {color:#FFFFFF;}  /* mouse over link */
+.white:active {color:#FFFFFF;}  /* selected link */
+
+.disableHighlighting
+{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .hr 
@@ -52,9 +73,20 @@ body { padding-top: 60px; }
   @include box-shadow(0 1px 2px rgba(0,0,0,0.15));
 }
 
+.padBottomOfPage
+{
+  margin-bottom: 100px;
+}
+
 .imageWidth100
 {
   width:100%;
+}
+
+.maxHeight250
+{
+  min-height: 200px;
+  max-height: 250px;
 }
 
 .imageHeight100
@@ -72,6 +104,16 @@ body { padding-top: 60px; }
   margin-top: -5px;
 }
 
+.down3
+{
+  margin-top: 3px;
+}
+
+.down5
+{
+  margin-top: 5px;
+}
+
 .up10
 {
   margin-top: -10px;
@@ -87,9 +129,24 @@ body { padding-top: 60px; }
   margin-bottom: -10px;
 }
 
+.bottom5
+{
+  margin-bottom: 5px;
+}
+
+.bottom10
+{
+  margin-bottom: 10px;
+}
+
 .width200
 {
   width: 200px;
+}
+
+.width300
+{
+  width: 300px;
 }
 
 .height200

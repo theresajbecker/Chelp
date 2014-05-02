@@ -14,15 +14,15 @@
       %a.myTestType.pad-top{:href => "/charities"} Chelp
       %ul.nav
         - if session[:user] != nil
-          %img.img-circle.width30.verticalGoogle{:src => current_user.get_picture(30)}
-          %a.navbar-text.pull-right{:href => "/messages/new"} Contact Us
-          %a.navbar-text.pull-right{:href => "/logout"} Logout
-          %a.navbar-text.pull-right{:href => user_path(session[:user])} #{current_user.first_name}
+          %img.img-circle.width30.verticalGoogle.down5{:src => current_user.get_picture(30)}
+          %a.navbar-text.pull-right.white{:href => "/messages/new"} Contact Us
+          %a.navbar-text.pull-right.white{:href => "/logout"} Logout
+          %a.navbar-text.pull-right.white{:href => user_path(session[:user])} #{current_user.first_name}
         - else
           %a.zocial.google.pull-right.space-right.pad-top{:href => "/auth/google_oauth2"} Sign in with Google
-          %a.navbar-text.pull-right{:href => "/messages/new"} Contact Us
-          %a.navbar-text.pull-right{:href => "/users/new"} Sign Up!
-          %a.navbar-text.pull-right{:href => "/login"} Login
+          %a.navbar-text.pull-right.white{:href => "/messages/new"} Contact Us
+          %a.navbar-text.pull-right.white{:href => "/users/new"} Sign Up!
+          %a.navbar-text.pull-right.white{:href => "/login"} Login
   #main{:role => "main"}
     -#.container
     -#.content

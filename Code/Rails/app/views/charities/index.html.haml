@@ -1,64 +1,61 @@
-#wrapper
-  / Sidebar
-  #sidebar-wrapper
-    %ul.sidebar-nav
-      %li.sidebar-brand
-        %h2 Filter
-      %li
-        
-      %li
-        .col-6
-          %h4 Region
-        .col-6
-          %select.form-control
-            %option All
-            %option US
-            %option Africa
-            %option South America
-            %option Asia
-            %option USA
-      %li
-        .col-6
-          %h4 Overhead
-        .col-6
-          %select.form-control
-            %option < 100%
-            %option < 80%
-            %option < 60%
-            %option < 40%
-            %option < 20%
-            %option < 10%
-            %option <  5%
-            %option <  1%
-      %li
-        %p
-        %p
-        %p
-        %a.btn.btn-default.btn-lg{href: "#", role: "button"} Apply
-  / Page content
-  #page-content-wrapper
-    .content
-      .page-content.inset
-        - if current_user == nil
-          .row
-          .well
-            .jumbotron
-              %h1 Welcome to Chelp!
-              %p Chelp is an open source projected aimed at providing users with a clear pictures of our world's charities. Our mission is to better the state of charities and arm people with the information they need to make well informed donation decisions.
-              %p
-              %a.btn.btn-primary.btn-lg{href: "/users/new", role: "button"} Sign Up!
-        -@charities.each do |charity|
-          .col-12
-            .well 
-              %a.h2{href: charity_path(charity)} #{charity.name}
+
+.container
+  .row.row-offcanvas.row-offcanvas-left
+    / sidebar
+    #sidebar.col-xs-6.col-sm-3.sidebar-offcanvas{role: "navigation"}
+      %ul.nav
+        .well
+          %form{role: "form", action: "/charities", method: "get"}
+            .form-group
+              %h4.bottom-10 Region Of Impact
               .hr
-              %img.imageWidth100{:src => charity.charity_image}
-/ JavaScript
-%script{src: "js/jquery-1.10.2.js"}
-%script{src: "js/bootstrap.js"}
-/ Custom JavaScript for the Menu Toggle
-:javascript
-  $("#menu-toggle").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("active");
-  });   
+              .checkbox
+                %label
+                  %input{checked: "checked", type: "checkbox", name: "US"} US
+              .checkbox
+                %label
+                  %input{checked: "checked", type: "checkbox"} Africa
+              .checkbox
+                %label
+                  %input{checked: "checked", type: "checkbox"} South America
+              .checkbox
+                %label
+                  %input{checked: "checked", type: "checkbox"} Asia
+              .checkbox
+                %label
+                  %input{checked: "checked", type: "checkbox"} USA
+            .form-group
+              %h4.bottom-10 Overhead
+              .hr
+              .radio
+                %label
+                  %input#optionsRadios1{checked: "checked", name: "overheadRadios", type: "radio", value: "option1"} Less than 100%
+              .radio
+                %label
+                  %input#optionsRadios2{name: "overheadRadios", type: "radio", value: "option1"} Less than 50%
+              .radio
+                %label
+                  %input#optionsRadios2{name: "overheadRadios", type: "radio", value: "option1"} Less than 20%
+              .radio
+                %label
+                  %input#optionsRadios2{name: "overheadRadios", type: "radio", value: "option1"} Less than 10%
+              .radio
+                %label
+                  %input#optionsRadios2{name: "overheadRadios", type: "radio", value: "option1"} Less than 5%
+            %button.btn.btn-large.btn-primary.imageWidth100{type: "submit"} Filter
+    / main area
+    .col-xs-12.col-sm-9
+      - if current_user == nil
+        .jumbotron
+          %h1 Welcome to Chelp!
+          %p Chelp is an open source projected aimed at providing users with a clear pictures of our world's charities. Our mission is to better the state of charities and arm people with the information they need to make well informed donation decisions.
+          %p
+          %a.button.btn.btn-large.btn-primary.white{href: "/users/new", role: "button"} Sign Up!
+      -@charities.each do |charity|
+        %div{onclick: "window.location='#{charity_path(charity)}';", style: "cursor: pointer;"}
+          .well
+            %h3.up5 #{charity.name}
+            -#.hr
+            %img.bottom10.imageWidth100{:src => charity.charity_image}
+            %a.italic.pull-right{href: charity.charity_homepage} #{charity.charity_homepage}
+      %a.button.btn.btn-large.btn-primary.imageWidth100.white.padBottomOfPage{href: new_charity_path, role: "button"} Create New Charity
