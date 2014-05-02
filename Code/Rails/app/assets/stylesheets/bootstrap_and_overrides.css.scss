@@ -2,7 +2,8 @@
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
-.navbar .myTestType {
+.navbar .myTestType 
+{
   margin-left: 20px;
   display: block;
   float: left;
@@ -16,6 +17,11 @@ body { padding-top: 60px; }
 
 .navbar .myTestType:hover {
   text-decoration: none;
+}
+
+.backgroundColorBlue
+{
+  background-color: #99FFFF
 }
 
 .hr 

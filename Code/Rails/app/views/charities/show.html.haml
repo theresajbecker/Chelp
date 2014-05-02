@@ -7,33 +7,47 @@
   %h1 
   .span12.hr
   %h2.up5 Reviews
-  -#@charities.each do |charity|
-  .well
-    %h3.up5 Sample Review Title One
-    %div.up5.italic.a{href: user_path(1)} User Sample One
-    %p 
-    .container
-      %p This is a sample review. The full review text would go here and probably be much longer than this.
-    %p 
-    %p 
-    %p.italic.pull-right Thursday May 1, 2014
+  -@reviews.each do |review|
+    - user = User.find(review.user_id)
 
-  .well
-    %h3.up5 Sample Review Title One
-    %div.up5.italic.a{href: user_path(1)} User Sample One
-    %p 
-    .container
-      %p This is a sample review. The full review text would go here and probably be much longer than this.
-    %p 
-    %p 
-    %p.italic.pull-right Thursday May 1, 2014
+    - if user == current_user
+      .well.backgroundColorBlue
+        %h3.up5 #{review.title}
+        %w Author:
+        %a.up5.italic{href: user_path(review.user_id)} You
+        %p 
+        .container
+          %p #{review.description}
+        %p 
+        %p 
+        %p.italic.pull-right #{review.created_at}
+    - else
+      .well
+        %h3.up5 #{review.title}
+        %w Author:
+        %a.up5.italic{href: user_path(review.user_id)} #{user.first_name} #{user.last_name}
+        %p 
+        .container
+          %p #{review.description}
+        %p 
+        %p 
+        %p.italic.pull-right #{review.created_at}
 
-  .well
-    %h3.up5 Sample Review Title One
-    %div.up5.italic.a{href: user_path(1)} User Sample One
-    %p 
-    .container
-      %p This is a sample review. The full review text would go here and probably be much longer than this.
-    %p 
-    %p 
-    %p.italic.pull-right Thursday May 1, 2014
+  -if current_user == nil
+    .well
+      %h3.up5 Login to leave a review.
+  -else
+    - if @reviews.find { |review| review[:user_id] == current_user.id } != nil
+      .well
+        %h3 Thank you for taking the time to leave a review for this charity.
+
+  -if current_user != nil && @reviews.find { |review| review[:user_id] == current_user.id } == nil
+    .well
+      %h3.up5 Create Review
+      %form{role: "form", action: "/reviews", method: "post"}
+        .form-group
+          %input.form-control{placeholder: "Review Title", name: "title"}
+        .form-group
+          %textarea.form-control{rows: "5", placeholder: "Full User Review. Please be objective and constructive.", name: "description"}
+        %input{:type=>"hidden", :value => @charity.id, :name => :charity}
+        %button.btn.btn-large.btn-primary{type: "submit"} Create

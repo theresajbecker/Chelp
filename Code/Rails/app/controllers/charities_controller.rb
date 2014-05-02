@@ -10,6 +10,8 @@ def index
 
   # GET /charities/1
   def show
+    @reviews = nil;
+    @reviews = Review.where(:charity_id => @charity.id).order(created_at: :desc)
   end
 
   # GET /charities/new
