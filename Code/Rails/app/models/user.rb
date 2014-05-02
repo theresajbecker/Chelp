@@ -1,5 +1,10 @@
 
 class User < ActiveRecord::Base
+include ActiveModel::Validations
+
+	
+  validates :email, :password, presence: true, uniqueness: true
+  validates :first_name, :last_name, presence: true, :on => :create
 
 	def self.from_oauth(auth)
 		User.where(:oauth_provider => auth.provider, :oauth_uid => auth.uid).first_or_initialize do |user|
