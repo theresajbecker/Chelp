@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def show
     @users = User.all
     @reviews = Review.where :user_id => @user.id
+    @messages = Message.all
+    @reports = Report.all
   end
 
   # GET /users/new
