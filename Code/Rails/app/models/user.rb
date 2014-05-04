@@ -1,5 +1,10 @@
 
 class User < ActiveRecord::Base
+include ActiveModel::Validations
+
+	
+  validates :email, :password, presence: true, uniqueness: true
+  validates :first_name, :last_name, presence: true, :on => :create
 
 	attr_accessible :oauth_provider, :oauth_uid, :oauth_token, :oauth_expires_at, :first_name, :last_name, :gender, :picture, :email, :password, :permissions
 
