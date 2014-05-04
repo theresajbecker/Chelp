@@ -1,22 +1,23 @@
-%h1 Contact Us
+.maxWidth800.centerScroll
+  .well
+    %h3.up5 Contact Us
+    %form{role: "form", action: "/messages", method: "post"}
 
-= link_to "Home", charities_path
+      .form-group
+        %label{for: "firstName"} First Name
+        %input#firstName.form-control{placeholder: "First Name", type: "fisrt_name", name: "first_name"}
 
-= form_tag messages_path do
+      .form-group
+        %label{for: "lastName"} Last Name
+        %input#lastName.form-control{placeholder: "Last Name", type: "last_name", name: "last_name"}
 
-  = label :message, :first_name, 'First Name'
-  = text_field :message, 'first_name'
+      .form-group
+        %label{for: "email"} Email Address
+        %input#email.form-control{placeholder: "Email", type: "email", name: "email"}
 
-  = label :message, :first_name, 'Last Name'
-  = text_field :message, 'last_name'
-
-  = label :message, :first_name, 'Username'
-  = text_field :message, 'username'
-
-  = label :message, :first_name, 'Email'
-  = text_field :message, 'email'
-
-  = label :message, :first_name, 'Message'
-  = text_field :message, 'message'
-  
-  = submit_tag 'Submit'
+      .form-group
+        %label{for: "message"} Message
+        %textarea#message.form-control{rows: "5", placeholder: "Message Text.", name: "message"}
+      - if current_user != nil
+        %input{:type=>"hidden", :value => current_user.id, :name => :username}     
+      %button.btn.btn-large.btn-primary{type: "submit"} Send

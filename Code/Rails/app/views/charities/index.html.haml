@@ -9,42 +9,46 @@
             .form-group
               %h4.bottom-10 Region Of Impact
               .hr
-              .checkbox
-                %label
-                  %input{checked: "checked", type: "checkbox", name: "US"} US
-              .checkbox
-                %label
-                  %input{checked: "checked", type: "checkbox"} Africa
-              .checkbox
-                %label
-                  %input{checked: "checked", type: "checkbox"} South America
-              .checkbox
-                %label
-                  %input{checked: "checked", type: "checkbox"} Asia
-              .checkbox
-                %label
-                  %input{checked: "checked", type: "checkbox"} USA
+              - @regions.each do |region|
+                - checked = session[:regions].include?(region) ? "checked" : nil
+                .checkbox
+                  %label
+                    %input{checked: checked, type: "checkbox", name: "region_#{region}"} #{region} 
+            .form-group
+              %h4.bottom-10 Area of Impact
+              .hr
+              - @areasOfImpact.each do |area|
+                - checked = session[:areas].include?(area) ? "checked" : nil
+                .checkbox
+                  %label
+                    %input{checked: checked, type: "checkbox", name: "AOI_#{area}"} #{area}
+
             .form-group
               %h4.bottom-10 Overhead
               .hr
               .radio
                 %label
-                  %input#optionsRadios1{checked: "checked", name: "overheadRadios", type: "radio", value: "option1"} Less than 100%
+                  - checked = session[:overheadRadios] == '100' ? "checked" : nil
+                  %input#optionsRadios1{checked: checked, name: "overheadRadios", type: "radio", value: "100"} Less than 100%
               .radio
                 %label
-                  %input#optionsRadios2{name: "overheadRadios", type: "radio", value: "option1"} Less than 50%
+                  - checked = session[:overheadRadios] == '50' ? "checked" : nil
+                  %input#optionsRadios2{checked: checked, name: "overheadRadios", type: "radio", value: "50"} Less than 50%
               .radio
                 %label
-                  %input#optionsRadios2{name: "overheadRadios", type: "radio", value: "option1"} Less than 20%
+                  - checked = session[:overheadRadios] == '10' ? "checked" : nil
+                  %input#optionsRadios2{checked: checked, name: "overheadRadios", type: "radio", value: "10"} Less than 10%
               .radio
                 %label
-                  %input#optionsRadios2{name: "overheadRadios", type: "radio", value: "option1"} Less than 10%
+                  - checked = session[:overheadRadios] == '5' ? "checked" : nil
+                  %input#optionsRadios2{checked: checked, name: "overheadRadios", type: "radio", value: "5"} Less than 5%
               .radio
                 %label
-                  %input#optionsRadios2{name: "overheadRadios", type: "radio", value: "option1"} Less than 5%
+                  - checked = session[:overheadRadios] == '1' ? "checked" : nil
+                  %input#optionsRadios2{checked: checked, name: "overheadRadios", type: "radio", value: "1"} Less than 1%
             %button.btn.btn-large.btn-primary.imageWidth100{type: "submit"} Filter
     / main area
-    .col-xs-12.col-sm-9
+    .col-xs-12.col-sm-7
       - if current_user == nil
         .jumbotron
           %h1 Welcome to Chelp!
@@ -55,7 +59,6 @@
         %div{onclick: "window.location='#{charity_path(charity)}';", style: "cursor: pointer;"}
           .well
             %h3.up5 #{charity.name}
-            -#.hr
             %img.bottom10.imageWidth100{:src => charity.charity_image}
             %a.italic.pull-right{href: charity.charity_homepage} #{charity.charity_homepage}
       %a.button.btn.btn-large.btn-primary.imageWidth100.white.padBottomOfPage{href: new_charity_path, role: "button"} Create New Charity

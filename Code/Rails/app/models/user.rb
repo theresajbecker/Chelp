@@ -1,6 +1,8 @@
 
 class User < ActiveRecord::Base
 
+	attr_accessible :oauth_provider, :oauth_uid, :oauth_token, :oauth_expires_at, :first_name, :last_name, :gender, :picture, :email, :password, :permissions
+
 	def self.from_oauth(auth)
 		User.where(:oauth_provider => auth.provider, :oauth_uid => auth.uid).first_or_initialize do |user|
 
