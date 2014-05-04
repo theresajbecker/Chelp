@@ -56,7 +56,7 @@ class UsersController < ApplicationController
     user = User.from_form(params)
     session[:user] = user.id
     flash[:notice] = "Welcome to Chelp #{params[:first_name]}"
-    redirect_to charities_path
+    redirect_to user_path(session[:user])
 
   end
 
