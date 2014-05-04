@@ -21,19 +21,12 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
-    p "=========================================================================================="
-    p "=========================================================================================="
-    p "=========================================================================================="
-
-    p "Params: "
-    p message_params
-
-    @message = Message.new(message_params)
+    @message = Message.new(params)
 
     p "Message: "
     p @message
     if @message.save
-      redirect_to @message, notice: 'Message was successfully created.'
+      redirect_to charities_path, notice: 'Thank you for leaving feedback.'
     else
       render action: 'new'
     end
@@ -60,8 +53,4 @@ class MessagesController < ApplicationController
       @message = Message.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def message_params
-      params.require(:message).permit(:first_name, :last_name, :username, :email, :message)
-    end
 end

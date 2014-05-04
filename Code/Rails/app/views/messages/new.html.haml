@@ -19,5 +19,5 @@
         %label{for: "message"} Message
         %textarea#message.form-control{rows: "5", placeholder: "Message Text.", name: "message"}
       - if current_user != nil
-        %input{:type=>"hidden", :value => current_user.id, :name => :username}     
+        %input{:type=>"hidden", :value => current_user.id, :name => :username}
       %button.btn.btn-large.btn-primary{type: "submit"} Send

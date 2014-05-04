@@ -5,7 +5,7 @@ include ActiveModel::Validations
 					:last_name, 
 					:username, 
 					:email, 
-					:password
+					:message
 
 
 end
