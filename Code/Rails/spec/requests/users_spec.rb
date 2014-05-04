@@ -5,7 +5,7 @@ describe "Users" do
 describe " GET /user" do
   before do
       #vist '/messages'
-        @user = User.create!(first_name: "test", last_name: "test", email: "test", password_one: "test")
+        @user = User.create!(first_name: "test", last_name: "test", email: "test", password: "test")
       visit user_path(@user)
   #before (:each) do
   #    visit '/users/new'
@@ -20,13 +20,14 @@ describe " GET /user" do
       #p page.body
     #end
 
-  describe "GET /users" do
     it "Should have the content 'Bio" do
-      visit users_path(@user)
+      #visit users_path(@user)
       expect(page).to have_content('Bio')
-    end
-	end
+	 end
 
+   it "Should have the contest 'Reviews" do
+      expect(page).to have_content("Reviews")
+    end
 
 
     #it "works! (now write some real specs)" do

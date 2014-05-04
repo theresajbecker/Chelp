@@ -46,9 +46,9 @@ describe "Messages" do
       fill_in "Message", :with => @message
     end
 
-    it "should let me select the Submit Button" do
-      expect(page).to have_button("Submit")
-      click_button "Submit"
+    it "should let me select the Send Button" do
+      expect(page).to have_button("Send")
+      click_button "Send"
       expect(page).to have_content('Message was successfully created.')
     end 
 
