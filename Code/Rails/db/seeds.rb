@@ -78,3 +78,24 @@ Charity.create(
 			how_to_donate: 			"https://support.woundedwarriorproject.org/default.aspx?tsid=66&campaignSource=WEBSITE&source=ONLINE",
 			charity_image: 			"http://2.bp.blogspot.com/-o7fZCZ0ZxF4/UZ_LICynthI/AAAAAAAAFrA/gKlQUIxqcOQ/s1600/WWPBANNER.jpg",
 			charity_homepage: 		"http://www.woundedwarriorproject.org/")
+
+User.create!(
+	      :oauth_provider => "",
+	      :oauth_uid => "",
+	      :oauth_token => "",
+	      :oauth_expires_at => "",
+	      :first_name => "Site",
+	      :last_name => "Admin",
+	      :gender => "",
+	      :picture => "https://lh6.ggpht.com/XtmMCLDlDBVuAr9MTuPvSfxZFdqRPEQw_WzWnp2R0PE9uKzAfBlm-z9JbqjqzlaP00__=w300",
+	      :email => "Admin@Chelp.com",
+	      :password => "ChelpAdmin",
+	      :permissions => "Admin")
+
+
+
+
+
+
+
+
