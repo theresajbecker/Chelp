@@ -1,6 +1,6 @@
 .centerScroll.maxWidth800
 
-  %h3.down-10 #{@user.first_name} #{@user.last_name}
+  %h2.down-10 #{@user.first_name} #{@user.last_name}
   .hr.up10
   .tabbable
     / Only required for left/right tabs
@@ -46,10 +46,7 @@
           -@users.each do |user|
             .well
               .col-md-1.col-lg-1
-                - if user.permissions == "Admin"
-                  %h4.up3 #{user.permissions}
-                - else
-                  %p #{user.permissions}
+                %p #{user.permissions}
               .col-md-5.col-lg-5
                 %a{href: user_path(user)} #{user.first_name} #{user.last_name}
               .col-md-6.col-lg-6
@@ -58,3 +55,15 @@
                   %td= link_to 'Promote To Admin', user, :method => :patch, class: "btn btn-default btn-sm up10 pull-right"
                   %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-default btn-sm up10 pull-right"
               %p 
+          %h2 Messages
+          -@messages.each do |message|
+            .well
+              %h3.up5 #{message.first_name} #{message.last_name}
+              %h6.up3 #{message.email}
+              .hr
+              %p.up5 #{message.message}
+
+
+
+
+

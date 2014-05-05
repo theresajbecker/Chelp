@@ -5,39 +5,39 @@
     %form{role: "form", action: "/charities", method: "post"} 
       .form-group
         %label{for: "CharityNameInput"} Charity Name
-        %input#CharityNameInput.form-control{placeholder: "Charity Name", type: "name", name: "name"}
+        %input#CharityNameInput.form-control{placeholder: "Charity Name", :autocomplete => :off, name: "name"}
 
       .form-group
         %label{for: "DescriptionInput"} Description
-        %input#DescriptionInput.form-control{placeholder: "Tell us about the Charity", type: "text", name: "description"}
+        %input#DescriptionInput.form-control{placeholder: "Tell us about the Charity", :autocomplete => :off, name: "description"}
 
       .form-group
         %label{for: "GeographicAreaofImpactInput"} Geographic Area of Impact
-        %input#GeographicAreaofImpactInput.form-control{placeholder: "Colorado", type: "region", name: "geographic_region"}
+        %input#GeographicAreaofImpactInput.form-control{placeholder: "Colorado", :autocomplete => :off, name: "geographic_region"}
 
       .form-group
         %label{for: "AreaOfImpactInput"} Area of Impact
-        %input#AreaOfImpactInput.form-control{placeholder: "Who or what benefits from the charity?", type: "impact", name: "area_of_impact"}
+        %input#AreaOfImpactInput.form-control{placeholder: "Who or what benefits from the charity?", :autocomplete => :off, name: "area_of_impact"}
 
       .form-group
         %label{for: "PercentOfOverhead"} Percent of Overhead
-        %input#PercentOfOverhead.form-control{placeholder: "What percentage of donations do not go to services?", type: "number", min: "0", max: "100", step: "1", name: "percent_of_overhead"}
+        %input#PercentOfOverhead.form-control{placeholder: "What percentage of donations do not go to services?", :autocomplete => :off, min: "0", max: "100", step: "1", name: "percent_of_overhead"}
 
       .form-group
         %label{for: "ReligiousAffiliation"} Religious Affiliation
-        %input#ReligiousAffiliation.form-control{placeholder: "What religion is this charity affiliated with?", type: "religion", name: "religious_affiliation"}
+        %input#ReligiousAffiliation.form-control{placeholder: "What religion is this charity affiliated with?", :autocomplete => :off, name: "religious_affiliation"}
 
       .form-group
         %label{for: "HowToDonate"} How to Donate
-        %input#HowToDonate.form-control{placeholder: "Copy and paste link to direct donation page here", type: "link to donate", name: "how_to_donate"}
+        %input#HowToDonate.form-control{placeholder: "Copy and paste link to direct donation page here", :autocomplete => :off, name: "how_to_donate"}
 
       .form-group
         %label{for: "CharityHomepage"} Charity Homepage
-        %input#CharityHomepage.form-control{placeholder: "Copy and paste link to the Charity's homepage here", type: "link to homepage", name: "charity_homepage"}  
+        %input#CharityHomepage.form-control{placeholder: "Copy and paste link to the Charity's homepage here", :autocomplete => :off, name: "charity_homepage"}  
 
       .form-group
         %label{for: "ImageURI"} Image URI
-        %input#ImageURI.form-control{placeholder: "Charity's image URI link", type: "link to charity image", name: "charity_image"}  
+        %input#ImageURI.form-control{placeholder: "Charity's image URI link", :autocomplete => :off, name: "charity_image"}  
         
       %button.btn.btn-large.btn-primary{type: "submit"} Create
 
