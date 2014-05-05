@@ -27,7 +27,7 @@ describe "Link Bar" do
           
             #  fill_in "First Name", :with => @firstname
               click_link "Login"
-              fill_in "Email address", :with => @test_user.email
+              fill_in "Email Address", :with => @test_user.email
               fill_in "Password", :with => @test_user.password
               click_button "Sign in"
           
