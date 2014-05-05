@@ -8,7 +8,8 @@ include ActiveModel::Validations
 					:percent_of_overhead, 
 					:religious_affiliation, 
 					:how_to_donate, 
-					:charity_homepage
+					:charity_homepage,
+					:charity_image
 										
 
 end
