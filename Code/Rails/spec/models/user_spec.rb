@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
     before(:each) do
-    user = User.new(:first_name => 'test', 
+    user = User.create(:first_name => 'test', 
                     :last_name => 'test',
                     :password => 'test',
                     :email => 'test@example.com' 

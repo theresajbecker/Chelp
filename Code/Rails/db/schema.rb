@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140502195642) do
 
   create_table "charities", force: true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "filter_flags"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,14 +33,14 @@ ActiveRecord::Schema.define(version: 20140502195642) do
     t.string   "last_name"
     t.string   "username"
     t.string   "email"
-    t.string   "message"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "reports", force: true do |t|
     t.integer  "user_id"
-    t.string   "message"
+    t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20140502195642) do
     t.integer  "user_id"
     t.integer  "charity_id"
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

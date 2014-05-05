@@ -5,7 +5,7 @@ class CreateMessages < ActiveRecord::Migration
       t.string :last_name
       t.string :username
       t.string :email
-      t.string :message
+      t.text :message
 
       t.timestamps
     end

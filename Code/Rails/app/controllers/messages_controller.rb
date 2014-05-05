@@ -21,10 +21,8 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
-    @message = Message.new(params)
+    @message = Message.create!(params)
 
-    p "Message: "
-    p @message
     if @message.save
       redirect_to charities_path, notice: 'Thank you for leaving feedback.'
     else

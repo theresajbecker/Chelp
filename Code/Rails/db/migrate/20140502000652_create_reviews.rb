@@ -4,7 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.references :user, index: true
       t.references :charity, index: true
       t.string :title
-      t.string :description
+      t.text :description
 
       t.timestamps
     end
