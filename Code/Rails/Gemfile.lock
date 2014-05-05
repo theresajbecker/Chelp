@@ -156,6 +156,10 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
+    shoulda (3.5.0)
+      shoulda-context (~> 1.0, >= 1.0.1)
+      shoulda-matchers (>= 1.4.1, < 3.0)
+    shoulda-context (1.2.1)
     shoulda-matchers (2.6.1)
       activesupport (>= 3.0.0)
     sprockets (2.11.0)
@@ -211,6 +215,7 @@ DEPENDENCIES
   rails (= 4.0.4)
   rspec-rails
   sass-rails
+  shoulda
   shoulda-matchers
   sprockets (= 2.11.0)
   sqlite3
