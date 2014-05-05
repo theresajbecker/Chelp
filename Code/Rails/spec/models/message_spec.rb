@@ -4,14 +4,14 @@ describe Message do
 	 before(:each) do
 	 message = Message.new(:first_name => 'test', 
                     :last_name => 'test',
-                    :username => 'test',
+                    :message => 'test',
                     :email => 'test@example.com' )
     # message.save
                     
       end  
  
- it "should require a username" do
-  Message.new(:username => "").should_not be_valid
+ it "should require a message" do
+  Message.new(:message => "").should_not be_valid
  end  
  
  it "should require a first name" do
