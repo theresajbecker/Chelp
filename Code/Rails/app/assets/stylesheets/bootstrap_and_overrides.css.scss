@@ -35,6 +35,17 @@ body { padding-top: 60px; }
 .white:hover {color:#FFFFFF;}  /* mouse over link */
 .white:active {color:#FFFFFF;}  /* selected link */
 
+.maxWidth800
+{
+  max-width: 800px;
+}
+
+.centerScroll
+{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .disableHighlighting
 {
   -webkit-touch-callout: none;

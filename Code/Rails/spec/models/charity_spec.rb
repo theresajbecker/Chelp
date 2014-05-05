@@ -46,18 +46,16 @@ describe Charity do
  it "should require how to donate" do
   Charity.new(:how_to_donate => "").should_not be_valid
  end 
-#describe "attributes" do                    
-                    
-##it { should_not allow_mass_assignment_of(:password) } 
-#it { should allow_mass_assignment_of(:name) }
-#it { should allow_mass_assignment_of(:description) }
-#it { should allow_mass_assignment_of(:filter_flags) }
-#it { should allow_mass_assignment_of(:geographic_region) }
-#it { should allow_mass_assignment_of(:area_of_impact) }
-#it { should allow_mass_assignment_of(:percent_of_overhead) }
-#it { should allow_mass_assignment_of(:religious_affiliation) }
-#it { should allow_mass_assignment_of(:how_to_donate) }
-#it { should allow_mass_assignment_of(:charity_homepage) }
+ 
+ it "should require a charity homepage" do
+  Charity.new(:charity_homepage => "").should_not be_valid
+ end 
+ 
+ it "should require a charity image" do
+  Charity.new(:charity_image => "").should_not be_valid
+ end
+ 
+
 
 
 

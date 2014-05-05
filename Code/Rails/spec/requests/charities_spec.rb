@@ -25,9 +25,9 @@ describe "Charities" do
       fill_in "Description", :with => "Test Description"
     end
       
-    it "should let me fill out Filter Flags" do
-      expect(page).to have_content("Filter Flags")
-      fill_in "Filter Flags", :with => "blah"
+    it "should let me fill out Area of Impact" do
+      expect(page).to have_content("Area of Impact")
+      fill_in "Area of Impact", :with => "blah"
     end
     
     it "should let me select the Create Button" do
@@ -35,7 +35,7 @@ describe "Charities" do
       click_button "Create"
       #I am sure there is a clever way to roll this into one command ;D
       redirect_to '/charities'
-      expect(page).to have_content('Filter')
+      expect(page).to have_content('Create')
     end
   
   end

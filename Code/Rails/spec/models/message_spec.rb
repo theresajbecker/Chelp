@@ -8,9 +8,7 @@ describe Message do
                     :email => 'test@example.com' )
     # message.save
                     
-      end
-    
-  
+      end  
  
  it "should require a username" do
   Message.new(:username => "").should_not be_valid

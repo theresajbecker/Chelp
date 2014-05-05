@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:show, :edit, :update, :destroy, :fromOAuth]
 
+
   # POST /sessions
   def create
-
     user = User.find_by email: params[:email]
 
     if user == nil

@@ -1,10 +1,11 @@
 .container
   .content.thinWindow
     %form.form-signin{action: "login", method: "post"}
-      %h2.form-signin-heading Please sign in
-      %input.input-block-level{placeholder: "Email address", type: "email", name: "email"}
-      %input.input-block-level{placeholder: "Password", type: "password", name: "password"}
-      %label.checkbox
-        %input{type: "checkbox", value: "remember-me"}
-        Remember me
-      %button.btn.btn-large.btn-primary{type: "submit"} Sign in
+      %h2.form-signin-heading.up5 Please sign in
+      .form-group
+        %label{for: "EmailInput"} Email Address
+        %input#EmailInput.form-control{placeholder: "Email Address", type: "email", name: "email"}
+      .form-group
+        %label{for: "PasswrodInput"} Password
+        %input#PasswrodInput.form-control{placeholder: "Password", type: "password", name: "password"}
+      %button.btn.btn-large.btn-primary.imageWidth100{type: "submit"} Sign in

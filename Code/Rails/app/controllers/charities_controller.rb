@@ -5,7 +5,28 @@ class CharitiesController < ApplicationController
 def index
     session[:sort] = params[:sort].presence || session[:sort].presence || 'name'
     session[:direction] = params[:direction].presence || session[:direction].presence || 'asc'
-    @charities = Charity.order(session[:sort] + " " + session[:direction])
+    
+    # Groom params data
+    regionsKVP = params.select { |key, value| key.to_s.start_with?('region_') }
+    regions = Array.new
+    regionsKVP.each {|key, value| regions << key.gsub(/region_/, '') }
+
+    aresaKVP = params.select { |key, value| key.to_s.start_with?('AOI_') }
+    areas = Array.new
+    aresaKVP.each {|key, value| areas << key.gsub(/AOI_/, '') }
+
+    session[:regions] = regions.presence || session[:regions].presence || Charity.uniq.pluck(:geographic_region)
+    session[:areas] = areas.presence || session[:areas].presence || Charity.uniq.pluck(:area_of_impact)
+    session[:overheadRadios] = params[:overheadRadios].presence || session[:overheadRadios].presence || '100'
+
+
+    @charities = Charity.
+      where(geographic_region: session[:regions], area_of_impact: session[:areas]).
+      where("percent_of_overhead < ?", session[:overheadRadios]).
+      order(session[:sort] + " " + session[:direction])
+
+    @regions = Charity.uniq.pluck(:geographic_region)
+    @areasOfImpact = Charity.uniq.pluck(:area_of_impact)
   end
 
   # GET /charities/1

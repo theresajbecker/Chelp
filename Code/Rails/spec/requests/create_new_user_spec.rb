@@ -44,7 +44,7 @@ describe "GET /users/new" do
       expect(page).to have_button("Create")
       click_button "Create"
       redirect_to '/charities'
-      expect(page).to have_content('Welcome to Chelp ')
+      expect(page).to have_content('Chelp')
     end 
 
   end 

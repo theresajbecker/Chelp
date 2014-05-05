@@ -21,7 +21,7 @@
 
       .form-group
         %label{for: "PercentOfOverhead"} Percent of Overhead
-        %input#PercentOfOverhead.form-control{placeholder: "What percentage of donations go to direct care?", type: "overhead", name: "percent_of_overhead"}
+        %input#PercentOfOverhead.form-control{placeholder: "What percentage of donations do not go to services?", type: "number", min: "0", max: "100", step: "1", name: "percent_of_overhead"}
 
       .form-group
         %label{for: "ReligiousAffiliation"} Religious Affiliation
